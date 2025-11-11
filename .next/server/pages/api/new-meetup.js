@@ -28,7 +28,7 @@ async function handler(req, res) {
     try {
         if (req.method === "POST") {
             const data = req.body;
-            const client = await external_mongodb_namespaceObject.MongoClient.connect("mongodb+srv://alyssamonera_db_user:rUDzzREeGK2VMBEC@cluster0.los55ec.mongodb.net/?appName=Cluster0");
+            const client = await external_mongodb_namespaceObject.MongoClient.connect(process.env.DATABASE_URL);
             const db = client.db();
             const meetupsCollection = db.collection("meetups");
             const result = await meetupsCollection.insertOne(data);

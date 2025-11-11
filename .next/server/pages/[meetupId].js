@@ -80,7 +80,7 @@ const DUMMY_MEETUP = {
 };
 // Need this function to use getStaticProps dynamically
 async function getStaticPaths() {
-    const client = await external_mongodb_.MongoClient.connect("mongodb+srv://alyssamonera_db_user:rUDzzREeGK2VMBEC@cluster0.los55ec.mongodb.net/?appName=Cluster0");
+    const client = await external_mongodb_.MongoClient.connect(process.env.DATABASE_URL);
     const db = client.db();
     const meetupsCollection = db.collection("meetups");
     // First param is the filter object
@@ -99,7 +99,7 @@ async function getStaticPaths() {
     };
 }
 async function getStaticProps({ params  }) {
-    const client = await external_mongodb_.MongoClient.connect("mongodb+srv://alyssamonera_db_user:rUDzzREeGK2VMBEC@cluster0.los55ec.mongodb.net/?appName=Cluster0");
+    const client = await external_mongodb_.MongoClient.connect(process.env.DATABASE_URL);
     const db = client.db();
     const meetupsCollection = db.collection("meetups");
     // First param is the filter object
