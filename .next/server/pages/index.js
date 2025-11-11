@@ -195,7 +195,7 @@ var head_default = /*#__PURE__*/__webpack_require__.n(head_);
 // Reserved name for NextJS executed during pre-render
 // Can write server code here since it's executed during pre-render
 async function getStaticProps() {
-    const client = await external_mongodb_.MongoClient.connect(process.env.DATABASE_URL);
+    const client = await external_mongodb_.MongoClient.connect("mongodb+srv://alyssamonera_db_user:rUDzzREeGK2VMBEC@cluster0.los55ec.mongodb.net/?appName=Cluster0");
     const db = client.db();
     const meetupsCollection = db.collection("meetups");
     const meetups = await meetupsCollection.find().toArray();
